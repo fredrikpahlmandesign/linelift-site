@@ -1,60 +1,162 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Line Lift — Support</title>
-<meta name="description" content="Support and contact for Line Lift, the watercolor painting app.">
-<style>
-  :root {
-    --paper: #F6F2E9;
-    --ink: #2B2620;
-    --ink-faint: #7A7265;
-    --accent: #8A5A3B;
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--paper);
-    color: var(--ink);
-    font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    -webkit-font-smoothing: antialiased;
-  }
-  main {
-    max-width: 40rem;
-    margin: 0 auto;
-    padding: 4rem 1.5rem 6rem;
-  }
-  h1 { font-size: 2rem; margin: 0 0 .25rem; letter-spacing: -0.01em; }
-  .tagline { color: var(--ink-faint); margin: 0 0 2.5rem; }
-  h2 { font-size: 1.15rem; margin: 2.5rem 0 .5rem; }
-  a { color: var(--accent); }
-  hr { border: 0; border-top: 1px solid rgba(43,38,32,.15); margin: 3rem 0; }
-  footer { color: var(--ink-faint); font-size: .85rem; }
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f5efe3" />
+  <meta name="description" content="Line Lift lets you sketch on paper, lift your lines, and paint beneath them with natural digital watercolor." />
+  <title>Line Lift — Sketch on paper. Paint in watercolor.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Libre+Caslon+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<main>
-  <h1>Line Lift</h1>
-  <p class="tagline">Sketch on paper. Paint with real watercolor — on your phone.</p>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Line Lift home">Line Lift</a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#how">How it works</a>
+      <a href="#watercolor">Watercolor</a>
+      <a href="#techniques">Techniques</a>
+    </nav>
+    <a class="button button-small" href="#download">Get the app</a>
+  </header>
 
-  <p>Line Lift lifts the linework from a photo of your paper sketch and lets
-  you paint it with a living watercolor engine: wet washes, blooms, dry brush,
-  real drying. Your originals stay yours — everything lives on your device
-  and in your own iCloud.</p>
+  <main id="top">
+    <section class="hero section-shell">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">The watercolor app for artists who still sketch on paper.</p>
+        <h1>Sketch on paper.<br>Paint in watercolor.</h1>
+        <p class="lede">Keep the character of your original linework, lift away the page, and paint naturally beneath your own lines.</p>
+        <div class="hero-actions">
+          <a class="button" href="#download">Download on the App Store</a>
+          <a class="text-link" href="#how">See how it works <span>↓</span></a>
+        </div>
+      </div>
+      <div class="hero-visual reveal delay-1" aria-label="Line Lift shown on iPhone">
+        <div class="glow"></div>
+        <img src="assets/phone-sketch.jpeg" alt="Line Lift painting a paper chicken sketch with watercolor" />
+      </div>
+    </section>
 
-  <h2>Support</h2>
-  <p>Questions, problems, ideas — email
-  <a href="mailto:fredrikande@gmail.com">fredrikande@gmail.com</a> and you will
-  get an answer from the person who makes the app. You can also send feedback
-  directly from inside Line Lift (the "…" menu).</p>
+    <section class="statement section-shell reveal">
+      <p class="eyebrow">A missing bridge</p>
+      <h2>Most drawing apps ask you to start digitally.</h2>
+      <p>Line Lift lets you begin where ideas often feel best: on paper. Capture a sketch, separate your marks from the page, and continue painting without tracing everything again.</p>
+    </section>
 
-  <h2>Privacy</h2>
-  <p>Line Lift is built to need as little of your data as possible.
-  Read the full <a href="privacy/">privacy policy</a>.</p>
+    <section class="feature split section-shell" id="how">
+      <div class="feature-visual reveal">
+        <img src="assets/ipad-lines.jpeg" alt="Expressive black linework preserved over watercolor in Line Lift on iPad" />
+      </div>
+      <div class="feature-copy reveal delay-1">
+        <p class="eyebrow">Your lines stay yours</p>
+        <h2>Every wobble. Every confident stroke. Every happy accident.</h2>
+        <p>Line Lift removes the paper while preserving the character of your drawing, so you can paint beneath it instead of rebuilding it.</p>
+        <ul class="clean-list">
+          <li>No retracing</li>
+          <li>No background cleanup</li>
+          <li>No loss of personality</li>
+        </ul>
+      </div>
+    </section>
 
-  <hr>
-  <footer>© 2026 Fredrik Påhlman</footer>
-</main>
+    <section class="workflow section-shell">
+      <div class="section-heading reveal">
+        <p class="eyebrow">A simple workflow</p>
+        <h2>Sketch. Lift. Paint.</h2>
+      </div>
+      <div class="steps">
+        <article class="step reveal">
+          <span class="step-number">01</span>
+          <h3>Sketch</h3>
+          <p>Use your favorite pencil, fountain pen, fineliner, or whatever is already in your hand.</p>
+        </article>
+        <article class="step reveal delay-1">
+          <span class="step-number">02</span>
+          <h3>Lift</h3>
+          <p>Capture the page. Line Lift separates your marks, straightens the paper, and keeps the energy intact.</p>
+        </article>
+        <article class="step reveal delay-2">
+          <span class="step-number">03</span>
+          <h3>Paint</h3>
+          <p>Paint beneath your own lines with wet-on-wet color, soft edges, pigment flow, and paper texture.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="feature split reverse section-shell" id="watercolor">
+      <div class="feature-visual reveal">
+        <img src="assets/phone-watercolor.jpeg" alt="Soft natural watercolor blending inside Line Lift" />
+      </div>
+      <div class="feature-copy reveal delay-1">
+        <p class="eyebrow">Real watercolor behavior</p>
+        <h2>It is not just a textured brush.</h2>
+        <p>Paint blooms. Pigment flows. Colors mingle. Edges soften. Paper changes the result. Because watercolor is not only how it looks—it is how it moves.</p>
+        <div class="behavior-grid">
+          <span>Wet-on-wet</span><span>Soft edges</span><span>Color mixing</span><span>Paper texture</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery section-shell">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Made for real sketchbooks</p>
+        <h2>Loose, precise, unfinished, expressive—bring all of it.</h2>
+      </div>
+      <div class="gallery-grid">
+        <figure class="reveal"><img src="assets/ipad-sketch.jpeg" alt="Paper chicken sketches being painted in Line Lift on iPad"></figure>
+        <figure class="reveal delay-1"><img src="assets/phone-lines.jpeg" alt="Rhino line drawing preserved over watercolor in Line Lift"></figure>
+      </div>
+    </section>
+
+    <section class="techniques section-shell" id="techniques">
+      <div class="techniques-copy reveal">
+        <p class="eyebrow">A growing artist's toolbox</p>
+        <h2>Traditional techniques, not endless brush clutter.</h2>
+        <p>Line Lift is built around the ways watercolor artists actually think: soften an edge, pull a fine line, drop pigment into a wash, or let the medium surprise you.</p>
+      </div>
+      <div class="technique-cards">
+        <article class="technique-card reveal">
+          <span class="technique-icon">✦</span>
+          <h3>Watercolor Studio</h3>
+          <p>Salt blooms, lifting, granulation, water drops, dry brush, and edge softening.</p>
+        </article>
+        <article class="technique-card reveal delay-1">
+          <span class="technique-icon">⌁</span>
+          <h3>Illustrator's Toolkit</h3>
+          <p>Rigger brushes, spotters, flexible ink, and a direction-sensitive italic nib.</p>
+        </article>
+        <article class="technique-card reveal delay-2">
+          <span class="technique-icon">≈</span>
+          <h3>Expressive Washes</h3>
+          <p>Mop brushes, reservoirs, atmospheric glazes, wet-edge control, and pigment drops.</p>
+        </article>
+      </div>
+      <div class="wide-image reveal">
+        <img src="assets/ipad-brushes.jpeg" alt="A collection of watercolor brushes inside Line Lift on iPad" />
+      </div>
+    </section>
+
+    <section class="final-cta" id="download">
+      <div class="final-inner reveal">
+        <p class="eyebrow">Line Lift</p>
+        <h2>Paper is where the idea begins.</h2>
+        <p>Bring your paper sketches to life with natural watercolor.</p>
+        <a class="button button-dark" href="#" aria-label="Download Line Lift on the App Store">Download on the App Store</a>
+        <p class="availability">Coming to iPhone and iPad.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer section-shell">
+    <span>© <span id="year"></span> Line Lift</span>
+    <div>
+      <a href="privacy/">Privacy</a>
+      <a href="support/">Support</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
