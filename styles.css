@@ -135,6 +135,21 @@ h3 { font-size: 1.45rem; }
 .techniques-copy > p:last-child { max-width: 700px; color: var(--muted); font-size: 1.15rem; }
 .technique-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
 .technique-icon { display: block; font-family: var(--serif); font-size: 2rem; color: var(--accent); margin-bottom: 2.2rem; }
+/* Roadmap tag on the technique packs (launch reality: the first release
+   ships the core studio; the packs follow). Eyebrow voice in a quiet pill. */
+.coming-soon {
+  display: inline-block;
+  margin-bottom: .85rem;
+  padding: .3rem .7rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: .66rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--card);
+}
 .wide-image { margin-top: 2rem; }
 .wide-image img { border-radius: 2.5rem; box-shadow: var(--shadow); }
 
