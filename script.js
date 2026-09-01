@@ -16,3 +16,10 @@ if (reducedMotion || !('IntersectionObserver' in window)) {
   }, { threshold: 0.14 });
   revealItems.forEach((item) => observer.observe(item));
 }
+
+// The hero video is decorative: with reduced motion on, show the poster only.
+const heroVideo = document.querySelector('.device-screen');
+if (heroVideo && reducedMotion) {
+  heroVideo.removeAttribute('autoplay');
+  heroVideo.pause();
+}

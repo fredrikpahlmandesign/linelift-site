@@ -1,11 +1,16 @@
+/* Line Lift product site. Palette is the app's own: the paper cream the
+   App Store screenshots sit on, the studio-desk green, and Alizarin
+   Crimson (#8C1F3C, one of the six default pans) as the accent. */
 :root {
   --paper: #f5efe3;
   --paper-deep: #e9dfcf;
   --ink: #2d251f;
-  --muted: #776d63;
+  --muted: #6f665c;
   --line: rgba(45, 37, 31, .14);
   --card: rgba(255, 252, 245, .66);
-  --accent: #984b5f;
+  --accent: #8c1f3c;
+  --desk: #3a665b;
+  --desk-deep: #2c5046;
   --shadow: 0 30px 80px rgba(65, 48, 35, .16);
   --serif: "Libre Caslon Display", Georgia, serif;
   --sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -31,7 +36,7 @@ body::before {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
   z-index: 99;
 }
-img { display: block; width: 100%; }
+img, video { display: block; width: 100%; }
 a { color: inherit; text-decoration: none; }
 
 .site-header {
@@ -76,6 +81,7 @@ h2 { font-size: clamp(2.5rem, 5vw, 5rem); }
 h3 { font-size: 1.45rem; }
 .lede { max-width: 43rem; margin: 1.8rem 0 0; font-size: clamp(1.1rem, 1.5vw, 1.35rem); color: var(--muted); }
 .hero-actions { display: flex; align-items: center; gap: 1.4rem; margin-top: 2rem; flex-wrap: wrap; }
+.hero-note { margin: 1.4rem 0 0; font-size: .9rem; color: var(--muted); letter-spacing: .02em; }
 .button {
   display: inline-flex;
   align-items: center;
@@ -94,9 +100,20 @@ h3 { font-size: 1.45rem; }
 .text-link { font-weight: 600; }
 .text-link span { display: inline-block; margin-left: .3rem; transition: transform .2s ease; }
 .text-link:hover span { transform: translateY(4px); }
+
+/* Hero device: the App Store preview video inside a plain dark bezel. */
 .hero-visual { position: relative; display: grid; place-items: center; }
-.hero-visual img { position: relative; width: min(100%, 440px); border-radius: 3.8rem; box-shadow: var(--shadow); transform: rotate(1.5deg); }
-.glow { position: absolute; width: 90%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(196,111,125,.32), transparent 68%); filter: blur(20px); }
+.glow { position: absolute; width: 90%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(140,31,60,.22), transparent 68%); filter: blur(20px); }
+.device {
+  position: relative;
+  width: min(100%, 400px);
+  padding: .55rem;
+  border-radius: 3.2rem;
+  background: #1c1916;
+  box-shadow: var(--shadow), inset 0 0 0 1px rgba(255,255,255,.08);
+  transform: rotate(1.5deg);
+}
+.device-screen { aspect-ratio: 886 / 1920; object-fit: cover; border-radius: 2.7rem; background: var(--desk); }
 
 .statement { text-align: center; padding-block: clamp(5rem, 11vw, 11rem); }
 .statement h2 { max-width: 900px; margin-inline: auto; }
@@ -105,60 +122,57 @@ h3 { font-size: 1.45rem; }
 .split { display: grid; grid-template-columns: .95fr 1.05fr; align-items: center; gap: clamp(3rem, 8vw, 8rem); padding-block: clamp(5rem, 9vw, 9rem); }
 .split.reverse .feature-visual { order: 2; }
 .feature-visual img { border-radius: 2.4rem; box-shadow: var(--shadow); }
+.split.reverse .feature-visual img,
+#sketchbook .feature-visual img { width: min(100%, 380px); margin-inline: auto; border-radius: 2.8rem; }
 .feature-copy p:not(.eyebrow) { color: var(--muted); font-size: 1.15rem; margin-top: 1.5rem; }
+.feature-copy .aside { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--line); font-size: 1rem; }
 .clean-list { list-style: none; padding: 0; margin: 2rem 0 0; display: grid; gap: .8rem; }
-.clean-list li { display: flex; align-items: center; gap: .8rem; font-weight: 600; }
-.clean-list li::before { content: "✓"; display: grid; place-items: center; width: 1.7rem; height: 1.7rem; border: 1px solid var(--line); border-radius: 50%; font-size: .8rem; }
+.clean-list li { display: flex; align-items: flex-start; gap: .8rem; font-weight: 500; line-height: 1.45; }
+.clean-list li::before { content: "✓"; flex: none; display: grid; place-items: center; width: 1.7rem; height: 1.7rem; margin-top: .05rem; border: 1px solid var(--line); border-radius: 50%; font-size: .8rem; }
 
-.workflow { padding-block: clamp(5rem, 9vw, 9rem); }
 .section-heading { text-align: center; max-width: 800px; margin: 0 auto 3.5rem; }
-.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-.step, .technique-card {
-  padding: clamp(1.7rem, 3vw, 2.5rem);
-  border: 1px solid var(--line);
-  border-radius: 1.8rem;
-  background: var(--card);
-  backdrop-filter: blur(8px);
-}
-.step-number { display: block; margin-bottom: 2.5rem; color: var(--accent); font-size: .78rem; letter-spacing: .12em; }
-.step p, .technique-card p { color: var(--muted); }
-.behavior-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .65rem; margin-top: 2rem; }
-.behavior-grid span { padding: .75rem 1rem; border: 1px solid var(--line); border-radius: 999px; text-align: center; font-size: .9rem; }
+.section-heading > p:last-child { max-width: 700px; margin: 1.8rem auto 0; color: var(--muted); font-size: 1.15rem; }
 
-.gallery { padding-block: clamp(5rem, 9vw, 9rem); }
-.gallery-grid { display: grid; grid-template-columns: 1.15fr .72fr; gap: 1.5rem; align-items: start; }
+/* Pigments: the six default pans as labelled wells, then the rest of the
+   palette as a plain grid. Colours are the engine's own hexes. */
+.pigments { padding-block: clamp(4rem, 8vw, 8rem); }
+.pigment-row { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: 1rem; text-align: center; font-size: .82rem; color: var(--muted); }
+.pigment-row li { display: grid; justify-items: center; gap: .7rem; }
+.pan {
+  width: min(100%, 92px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, color-mix(in srgb, var(--c) 78%, white) 0%, var(--c) 45%, color-mix(in srgb, var(--c) 78%, black) 100%);
+  box-shadow: inset 0 -6px 14px rgba(0,0,0,.18), 0 10px 22px rgba(45,37,31,.14), 0 0 0 6px rgba(255,252,245,.9), 0 0 0 7px var(--line);
+}
+.pigment-grid { list-style: none; margin: 3rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(15, 1fr); gap: .6rem; }
+.pigment-grid li { aspect-ratio: 1; border-radius: 50%; background: var(--c); box-shadow: inset 0 -3px 8px rgba(0,0,0,.18), 0 0 0 3px rgba(255,252,245,.9), 0 0 0 4px var(--line); }
+
+.gallery { padding-block: clamp(2rem, 4vw, 4rem); }
+.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; align-items: start; }
 .gallery figure { margin: 0; }
-.gallery img { border-radius: 2.5rem; box-shadow: var(--shadow); }
+.gallery img { border-radius: 2.2rem; box-shadow: var(--shadow); }
+.gallery figcaption { margin-top: 1rem; text-align: center; font-size: .9rem; color: var(--muted); }
 
-.techniques { padding-block: clamp(5rem, 9vw, 9rem); }
-.techniques-copy { max-width: 850px; margin-bottom: 3rem; }
-.techniques-copy > p:last-child { max-width: 700px; color: var(--muted); font-size: 1.15rem; }
-.technique-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-.technique-icon { display: block; font-family: var(--serif); font-size: 2rem; color: var(--accent); margin-bottom: 2.2rem; }
-/* Roadmap tag on the technique packs (launch reality: the first release
-   ships the core studio; the packs follow). Eyebrow voice in a quiet pill. */
-.coming-soon {
-  display: inline-block;
-  margin-bottom: .85rem;
-  padding: .3rem .7rem;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  font-size: .66rem;
-  font-weight: 600;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--accent);
-  background: var(--card);
-}
-.wide-image { margin-top: 2rem; }
-.wide-image img { border-radius: 2.5rem; box-shadow: var(--shadow); }
+.ipad { padding-block: clamp(5rem, 9vw, 9rem); }
+.ipad-copy { max-width: 760px; margin-bottom: 3rem; }
+.ipad-copy > p:last-child { max-width: 640px; color: var(--muted); font-size: 1.15rem; margin-top: 1.5rem; }
+.wide-image img { width: min(100%, 820px); margin-inline: auto; border-radius: 2rem; box-shadow: var(--shadow); }
 
-.final-cta { margin-top: 5rem; padding: clamp(6rem, 12vw, 12rem) 1.25rem; background: #171411; color: #f8f2e8; text-align: center; }
+.facts { padding-block: clamp(3rem, 6vw, 6rem); }
+.facts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0; }
+.facts-grid > div { padding: clamp(1.5rem, 2.5vw, 2rem); border: 1px solid var(--line); border-radius: 1.6rem; background: var(--card); backdrop-filter: blur(8px); }
+.facts-grid dt { font-size: .76rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.facts-grid dd { margin: .6rem 0 0; color: var(--ink); line-height: 1.5; }
+.facts-grid dd a { text-decoration: underline; text-underline-offset: .2em; }
+
+.final-cta { margin-top: 5rem; padding: clamp(6rem, 12vw, 12rem) 1.25rem; background: var(--desk-deep); color: #f8f2e8; text-align: center; }
 .final-inner { max-width: 850px; margin-inline: auto; }
+.final-inner .eyebrow { color: rgba(248,242,232,.6); }
 .final-inner h2 { color: #f8f2e8; }
-.final-inner > p:not(.eyebrow):not(.availability) { color: rgba(248,242,232,.67); font-size: 1.2rem; }
-.button-dark { background: #f8f2e8; color: #171411; margin-top: 1rem; }
-.availability { color: rgba(248,242,232,.45); font-size: .85rem; }
+.final-inner > p:not(.eyebrow):not(.availability) { max-width: 620px; margin: 1.8rem auto 0; color: rgba(248,242,232,.72); font-size: 1.15rem; }
+.button-light { background: #f8f2e8; color: var(--desk-deep); margin-top: 2rem; box-shadow: none; }
+.availability { margin-top: 1.4rem; color: rgba(248,242,232,.45); font-size: .85rem; }
 .footer { display: flex; justify-content: space-between; padding-block: 2rem; color: var(--muted); font-size: .9rem; }
 .footer div { display: flex; gap: 1.4rem; }
 
@@ -172,13 +186,15 @@ h3 { font-size: 1.45rem; }
   .nav { display: none; }
   .hero { grid-template-columns: 1fr; text-align: center; min-height: auto; }
   .hero-copy { display: grid; justify-items: center; }
-  .hero-visual img { width: min(78vw, 410px); }
+  .device { width: min(72vw, 360px); }
   .split, .gallery-grid { grid-template-columns: 1fr; }
   .split.reverse .feature-visual { order: initial; }
   .feature-copy { text-align: center; }
-  .clean-list { max-width: 320px; margin-inline: auto; text-align: left; }
-  .steps, .technique-cards { grid-template-columns: 1fr; }
-  .gallery-grid figure:nth-child(2) { width: 70%; justify-self: center; }
+  .clean-list { max-width: 420px; margin-inline: auto; text-align: left; }
+  .pigment-row { grid-template-columns: repeat(3, 1fr); }
+  .pigment-grid { grid-template-columns: repeat(10, 1fr); }
+  .gallery-grid figure { width: min(100%, 360px); justify-self: center; }
+  .facts-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 560px) {
@@ -189,7 +205,8 @@ h3 { font-size: 1.45rem; }
   .hero { padding-top: 3rem; }
   .hero-actions { flex-direction: column; }
   .feature-visual img, .gallery img, .wide-image img { border-radius: 1.6rem; }
-  .gallery-grid figure:nth-child(2) { width: 90%; }
+  .pigment-grid { grid-template-columns: repeat(6, 1fr); }
+  .facts-grid { grid-template-columns: 1fr; }
   .footer { flex-direction: column; gap: 1rem; align-items: center; }
 }
 
