@@ -254,6 +254,11 @@ h3 { font-size: 1.45rem; }
 .final-inner > p:not(.eyebrow):not(.availability) { max-width: 620px; margin: 1.8rem auto 0; color: var(--muted); font-size: 1.15rem; }
 .final-inner .button { margin-top: 2rem; }
 .availability { margin-top: 1.4rem; color: var(--muted); font-size: .85rem; }
+/* The support link sits INSIDE a sentence, so colour alone cannot mark it —
+   .availability is already --muted and the link inherits that exactly. An
+   underline is what makes it a link rather than a word. */
+.availability a { color: inherit; text-decoration: underline; text-underline-offset: .2em; text-decoration-thickness: 1px; }
+.availability a:hover { color: var(--ink); }
 .footer { display: flex; justify-content: space-between; padding-block: 2rem; color: var(--muted); font-size: .9rem; }
 .footer div { display: flex; gap: 1.4rem; }
 
